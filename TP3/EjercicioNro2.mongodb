@@ -6,19 +6,19 @@ use('tiendaOnline');
 // Tarea:
 // - Calcular el precio promedio, máximo y mínimo por categoría de producto.
 
-//let resultado_primer_consulta = db.productos.aggregate([
-//    { 
-//        $group: {
-//        _id: "$categoria",
-//        precio_promedio: { $avg: "$precio" },
-//        precio_maximo: {$max: "$precio"},
-//        precio_minimo: { $min: "$precio" }
-//    } 
-//    },
-//    { $sort: { _id: 1 } }
-//]).toArray();
+let resultado_primer_consulta = db.productos.aggregate([
+    { 
+        $group: {
+        _id: "$categoria",
+        precio_promedio: { $avg: "$precio" },
+        precio_maximo: {$max: "$precio"},
+        precio_minimo: { $min: "$precio" }
+        } 
+    },
+    { $sort: { _id: 1 } }
+]).toArray();
 
-//console.log(resultado_primer_consulta);
+console.log(resultado_primer_consulta);
 
 // - Obtener el total de ventas por país del cliente, incluyendo la cantidad de transacciones y el monto total.
 // Etapas del Pipeline: $group, $sort
